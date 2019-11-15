@@ -6,11 +6,11 @@ author: PetteriM1
 
 commands:
   freeze:
-    usage: "/freeze [player]"
+    usage: "/freeze [player|all]"
     description: "Freeze player"
     permission: "freeze.self"
   unfreeze:
-    usage: "/unfreeze [player]"
+    usage: "/unfreeze [player|all]"
     description: "Unfreeze player"
     permission: "unfreeze.self"
 
@@ -19,7 +19,11 @@ permissions:
     default: op
   freeze.other:
     default: op
+  freeze.all:
+    default: op
   unfreeze.self:
     default: op
   unfreeze.other:
+    default: op
+  unfreeze.all:
     default: op

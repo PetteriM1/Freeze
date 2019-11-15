@@ -39,6 +39,20 @@ public class Main extends PluginBase implements Listener {
                 frozenPlayers.add(sender.getName());
                 sender.sendMessage("\u00A7aDone!");
             } else if (1 == args.length) {
+                if (args[0].equalsIgnoreCase("all") || args[0].equalsIgnoreCase("@a")) {
+                    if (!sender.hasPermission("freeze.all")) {
+                        return false;
+                    }
+
+                    for (Player p : getServer().getOnlinePlayers().values()) {
+                        p.setImmobile(true);
+                        frozenPlayers.add(p.getName());
+                    }
+
+                    sender.sendMessage("\u00A7aDone!");
+                    return true;
+                }
+
                 if (!sender.hasPermission("freeze.other")) {
                     return false;
                 }
@@ -71,6 +85,20 @@ public class Main extends PluginBase implements Listener {
                 frozenPlayers.remove(sender.getName());
                 sender.sendMessage("\u00A7aDone!");
             } else if (1 == args.length) {
+                if (args[0].equalsIgnoreCase("all") || args[0].equalsIgnoreCase("@a")) {
+                    if (!sender.hasPermission("unfreeze.all")) {
+                        return false;
+                    }
+
+                    for (Player p : getServer().getOnlinePlayers().values()) {
+                        p.setImmobile(false);
+                        frozenPlayers.remove(p.getName());
+                    }
+
+                    sender.sendMessage("\u00A7aDone!");
+                    return true;
+                }
+
                 if (!sender.hasPermission("unfreeze.other")) {
                     return false;
                 }
