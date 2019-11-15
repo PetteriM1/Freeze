@@ -1,0 +1,25 @@
+name: Freeze
+main: freeze.Main
+version: "${pom.version}"
+api: ["1.0.0"]
+author: PetteriM1
+
+commands:
+  freeze:
+    usage: "/freeze [player]"
+    description: "Freeze player"
+    permission: "freeze.self"
+  unfreeze:
+    usage: "/unfreeze [player]"
+    description: "Unfreeze player"
+    permission: "unfreeze.self"
+
+permissions:
+  freeze.self:
+    default: op
+  freeze.other:
+    default: op
+  unfreeze.self:
+    default: op
+  unfreeze.other:
+    default: op
