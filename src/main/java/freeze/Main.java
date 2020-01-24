@@ -1,15 +1,14 @@
 package freeze;
 
-import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
-import cn.nukkit.entity.Entity;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.block.BlockBreakEvent;
 import cn.nukkit.event.block.BlockPlaceEvent;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
+import cn.nukkit.player.Player;
 import cn.nukkit.plugin.PluginBase;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class Main extends PluginBase implements Listener {
                     return true;
                 }
 
-                ((Entity) sender).setImmobile(true);
+                ((Player) sender).setImmobile(true);
                 frozenPlayers.add(sender.getName());
                 sender.sendMessage("\u00A7aDone!");
             } else if (1 == args.length) {
@@ -81,7 +80,7 @@ public class Main extends PluginBase implements Listener {
                     return true;
                 }
 
-                ((Entity) sender).setImmobile(false);
+                ((Player) sender).setImmobile(false);
                 frozenPlayers.remove(sender.getName());
                 sender.sendMessage("\u00A7aDone!");
             } else if (1 == args.length) {
